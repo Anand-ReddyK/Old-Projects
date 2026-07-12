@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@500&display=swap" rel="stylesheet">
+    <link href="{{url_for('static', filename='styles/index.css')}}" rel="stylesheet">
+    <style>
+        table, th {
+            border: 1px solid black;
+        }
+
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+        h2 {
+            text-align:center;
+            font-size: 60px;
+            font-family: 'Sofia Sans', sans-serif;
+        }
+    </style>
+    <script src="..\remove.js"></script>
+
+</head>
+<body>
+    <h2>Task Manager</h2>
+    <button type="button" onclick="console.log(1000)">click</button>
+    <form class="center" method="post">
+        <label for="task">Enter Task</label>
+        <input type="text" name="task">
+        <br>
+        <label for="number">Task Number</label>
+        <input type="text" name="number">
+        <input type="submit" value="Enter">
+    </form><br>
+
+
+    {% if all_tasks != [] %}
+    <table class="center">
+        {%for tas in all_tasks %}
+            <tr>
+                <th>{{tas["task"]}}</th>
+                <th><button type="button" onclick="hi()">remove</button></th>
+            </tr>   
+        {%endfor %}
+    </table>
+    {%endif%}
+
+
+    <script src="remove.js"></script>
+</body>
+</html>
